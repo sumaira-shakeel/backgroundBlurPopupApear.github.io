@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blur-background-popup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            margin: 0; }
+               .container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+                justify-content: center;
+                background: url(https://plus.unsplash.com/premium_photo-1683309565422-77818a287060?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                text-align: center;
+                transition: filter 0.7s;
+
+               }
+               h1{
+                font-size: 60px;
+                color: #fff;
+                font-family: sans-serif;
+                letter-spacing: 3px;
+                text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+
+               }
+               .btn{
+                padding: 10px 20px;
+                width: 200px;
+                cursor: pointer;
+                background: orangered;
+                border: none;
+                border-radius: 5px;
+                font-size: 20px;
+
+               }
+               .btn:hover{
+              filter: brightness(0.8);
+               }
+               .active.container{
+               filter: blur(5px) brightness(.7);
+               }
+               .popup_container{
+                position: fixed;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #fff;
+                width: 400px;
+                height: 200px;
+                top: 30%;
+                display: flex;
+                flex-direction: column;
+                padding: 20px ;
+                background: url(https://images.unsplash.com/photo-1719937206168-f4c829152b91?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+                background-size: cover;
+
+border-radius: 10px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+opacity: 1;
+transition: all .7s;
+}
+h4{
+    font-size: 30px;
+    margin: 10px 0;
+    font-family: sans-serif;
+    color: rgb(22, 22, 158);
+}
+label{
+    color:rgb(22, 22, 158) ;
+    font-family: sans-serif;
+}
+.popup_btn{
+    background-color: orangered;
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 2px solid;
+}
+.input{
+    border: 2px solid ;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 20px;
+    text-align: center;
+}
+.input::placeholder{
+    color: lightgray;
+
+}
+.close_icon{
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+.close_icon:hover{
+    color: orangered;
+}
+.active.popup_container{
+    visibility: hidden;
+    opacity: 0;
+    top: 10%;
+}
+
+
+              
+    </style>
+</head>
+<body>
+    <div class="container ">
+        <h1>welcome to our website</h1>
+        <button class="btn">Click to join</button>
+    </div>
+
+         <div class="popup_container  active">
+            <h4>20% OFF offer</h4>
+            <label for="email">Your Email in</label>
+            <input type="email" name="" class="input" placeholder="Enter Your Email">
+            <button class="popup_btn">join</button>
+            <div class="close_icon">
+    
+            <i class="fas fa-times fa-2x"></i>
+
+        </div>
+    </div>
+</div> 
+    <script>
+        const containerE1 = document.querySelector(".container");
+const btnE1 = document.querySelector(".btn");
+const popupContainerE1 = document.querySelector(".popup_container"); // added quotes around the selector
+const closeIconE1 = document.querySelector(".close_icon");
+
+btnE1.addEventListener("click", () => {
+  containerE1.classList.
+  add("active");
+  popupContainerE1.classList.remove("active"); 
+});
+
+closeIconE1.addEventListener("click", () => {
+  containerE1.classList.remove("active");
+  popupContainerE1.classList.add("active"); 
+});
+
+
+
+
+
+
+        
+    </script>
+
+    
+</body>
+</html>
